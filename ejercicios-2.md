@@ -17,7 +17,71 @@ Crea una copia de la carpeta gtfs. Luego crea enlaces duros y blandos a los fich
 3. ¿Qué ocurre con la otra parte cuando se edita el destino o el origen del enlace?
 4. ¿Qué ocurre cuando copiamos un enlace?
 
-### Respuesta ejercicio 1
+## Respuesta ejercicio 1
+
+La orden para crear la copia : `cp -r gtfs/ gtfs-1`
+
+Nos aseguramos de tener la copia : `ls -l`
+
+**drwxr-xr-x 2 mcuadrado mcuadrado  4096 oct 24 16:35 gtfs**
+
+**drwxr-xr-x 2 mcuadrado mcuadrado  4096 oct 24 16:36 gtfs-1**
+
+I- _CREAMOS UN ENLACE DURO_
+
+Como en el guión de las prácticas, primero creamos un directorio: `mkdir enlduro`
+
+Ahora hacemos el enlace con la orden: `ln Homo_sapiens.GRCh38.102.gtf.gz enlduro/`
+
+Comprobamos que lo hemos hecho correctamente: `ls -li enlduro/`
+
+**total 47164
+229900453 -rwxr-xr-x 2 mcuadrado mcuadrado 48295448 oct 24 16:36 Homo_sapiens.GRCh38.102.gtf.gz**
+
+1. ¿Qué ocurre cuando se borra el origen y se intenta acceder al destino?
+
+
+Borramos el fichero origen : `rm Homo_sapiens.GRCh38.102.gtf.gz`
+
+Comprobamos que se ha borrado: `ls -lh -i`
+
+**total 181M
+229900454 -rwxr-xr-x 1 mcuadrado mcuadrado 135M oct 24 16:36 Drosophila_melanogaster.BDGP6.28.102.gtf
+229900455 drwxr-xr-x 2 mcuadrado mcuadrado 4,0K oct 24 16:56 enlduro**
+
+Accedemos al destino: `cd enlduro/`
+                      `ls -lh -i`
+                      
+**Respuesta_1: Se han mantenido los datos y podemos acceder a ellos:**
+
+**229900453 -rwxr-xr-x 1 mcuadrado mcuadrado 47M oct 24 16:36 Homo_sapiens.GRCh38.102.gtf.gz**
+
+
+2. ¿Qué ocurre cuando se borra el destino y se intenta acceder al origen? 
+
+**Respuesta_2: el fichero origen está impecable**
+
+**229900453 -rwxr-xr-x 1 mcuadrado mcuadrado  47M oct 24 17:28 Homo_sapiens.GRCh38.102.gtf.gz**
+
+3. ¿Qué ocurre con la otra parte cuando se edita el destino o el origen del enlace?
+
+**Respuesta_3: Se mantienen los cambios que hemos editado en el fichero origen o destino (ambos apuntan a los mismos datos)**
+
+4. ¿Qué ocurre cuando copiamos un enlace?
+
+**Respuesta_4: Copia los datos origen al nuevo destino que le hemos dicho pero _IMPORT._ NO aumenta el número de enlaces a los datos, se mantiene en 2** (el inodo va en aumento con los enlaces que ido haciendo)
+
+`cp -r enlduro/ enlduro-1`
+
+```
+total 181M
+229900454 -rwxr-xr-x 1 mcuadrado mcuadrado 135M oct 24 17:28 Drosophila_melanogaster.BDGP6.28.102.gtf
+229900455 drwxr-xr-x 2 mcuadrado mcuadrado 4,0K oct 24 17:38 enlduro
+229900456 drwxr-xr-x 2 mcuadrado mcuadrado 4,0K oct 24 17:38 enlduro-1
+229900453 -rwxr-xr-x 2 mcuadrado mcuadrado  47M oct 24 17:28 Homo_sapiens.GRCh38.102.gtf.gz
+```
+  
+
 
 ## Ejercicio 2
 Usa la documentación de `find` para encontrar todos los notebook Jupyter con fecha de última modificación 30 de Noviembre de 2020 que haya en tu directorio HOME. Excluye todos aquellos que se encuentren dentro de directorios ocultos (aquellos que comienzan por un punto `.`). 
