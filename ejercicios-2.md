@@ -27,16 +27,19 @@ Nos aseguramos de tener la copia : `ls -l`
 
 **drwxr-xr-x 2 mcuadrado mcuadrado  4096 oct 24 16:36 gtfs-1**
 
-I- _CREAMOS UN ENLACE DURO_
+(2 entradas en cada uno de ellos)
+
+I- ***CREAMOS UN ENLACE DURO***
 
 Como en el guión de las prácticas, primero creamos un directorio: `mkdir enlduro`
 
 Ahora hacemos el enlace con la orden: `ln Homo_sapiens.GRCh38.102.gtf.gz enlduro/`
 
 Comprobamos que lo hemos hecho correctamente: `ls -li enlduro/`
-
-**total 47164
+```
+total 47164
 229900453 -rwxr-xr-x 2 mcuadrado mcuadrado 48295448 oct 24 16:36 Homo_sapiens.GRCh38.102.gtf.gz**
+```
 
 1. ¿Qué ocurre cuando se borra el origen y se intenta acceder al destino?
 
@@ -44,11 +47,11 @@ Comprobamos que lo hemos hecho correctamente: `ls -li enlduro/`
 Borramos el fichero origen : `rm Homo_sapiens.GRCh38.102.gtf.gz`
 
 Comprobamos que se ha borrado: `ls -lh -i`
-
-**total 181M
+```
+total 181M
 229900454 -rwxr-xr-x 1 mcuadrado mcuadrado 135M oct 24 16:36 Drosophila_melanogaster.BDGP6.28.102.gtf
-229900455 drwxr-xr-x 2 mcuadrado mcuadrado 4,0K oct 24 16:56 enlduro**
-
+229900455 drwxr-xr-x 2 mcuadrado mcuadrado 4,0K oct 24 16:56 enlduro
+```
 Accedemos al destino: `cd enlduro/`
                       `ls -lh -i`
                       
@@ -65,11 +68,11 @@ Accedemos al destino: `cd enlduro/`
 
 3. ¿Qué ocurre con la otra parte cuando se edita el destino o el origen del enlace?
 
-**Respuesta_3: Se mantienen los cambios que hemos editado en el fichero origen o destino (ambos apuntan a los mismos datos)**
+**Respuesta_3: No sé como editar datos con .gtf. Imagino que se mantienen los cambios que hemos editado en el fichero origen o destino (ambos apuntan a los mismos datos)**
 
 4. ¿Qué ocurre cuando copiamos un enlace?
 
-**Respuesta_4: Copia los datos origen al nuevo destino que le hemos dicho pero _IMPORT._ NO aumenta el número de enlaces a los datos, se mantiene en 2** (el inodo va en aumento con los enlaces que ido haciendo)
+**Respuesta_4: Copia los datos origen al nuevo destino que le hemos dicho pero _IMPORT._ NO aumenta el número de enlaces a los datos, se mantiene en 2 y NO aumenta el total 181M** (el inodo va en aumento con los enlaces que ido haciendo)
 
 `cp -r enlduro/ enlduro-1`
 
@@ -80,7 +83,85 @@ total 181M
 229900456 drwxr-xr-x 2 mcuadrado mcuadrado 4,0K oct 24 17:38 enlduro-1
 229900453 -rwxr-xr-x 2 mcuadrado mcuadrado  47M oct 24 17:28 Homo_sapiens.GRCh38.102.gtf.gz
 ```
-  
+ ----------------------------------------------------------------------------------------------------
+ 
+ II- ***CREAMOS UN ENLACE BLANDO***
+
+Creamos un nuevo directorio: `mkdir enlsoft`
+
+Ahora hacemos el enlace con la orden: `ln -s Drosophila_melanogaster.BDGP6.28.102.gtf enlsoft/`
+
+Comprobamos que lo hemos hecho correctamente: `ls -lh -li`
+
+```
+total 181M
+229900454 -rwxr-xr-x 1 mcuadrado mcuadrado 135M oct 24 18:15 Drosophila_melanogaster.BDGP6.28.102.gtf
+229900455 drwxr-xr-x 2 mcuadrado mcuadrado 4,0K oct 24 18:21 enlsoft
+229900453 -rwxr-xr-x 1 mcuadrado mcuadrado  47M oct 24 18:15 Homo_sapiens.GRCh38.102.gtf.gz
+```
+
+enlsoft tiene 2 entradas pero el fichero origen 1 (esto es diferente al enlace duro, en el que ambos tienen 2 entradas)
+
+1. ¿Qué ocurre cuando se borra el origen y se intenta acceder al destino? 
+
+**Respuesta_1: Mantiene el nombre del fichero origen, pero debe estar vacio. El total ha bajado total 47M y he perdido los 135M del archivo de Drosophila**
+
+```
+mcuadrado@cpg3:~/2-gestion-y-descarga-mcuadrado-smuntion/gtfs-1$ lista
+total 47M
+229900455 drwxr-xr-x 2 mcuadrado mcuadrado 4,0K oct 24 18:21 enlsoft
+229900453 -rwxr-xr-x 1 mcuadrado mcuadrado  47M oct 24 18:15 Homo_sapiens.GRCh38.102.gtf.gz
+```
+
+Cuando le doy la orden: `ls -lh -li enlsoft/`
+
+**El enlace en sí se mantiene, pero como he borrado los datos no podré acceder a ellos.**
+
+```
+total 0
+229900460 lrwxrwxrwx 1 mcuadrado mcuadrado 40 oct 24 17:55 
+Drosophila_melanogaster.BDGP6.28.102.gtf -> Drosophila_melanogaster.BDGP6.28.102.gtf
+```
+
+
+2. ¿Qué ocurre cuando se borra el destino y se intenta acceder al origen?
+
+**Respuesta_2: el fichero origen está impecable**
+
+```
+total 181M
+229900454 -rwxr-xr-x 1 mcuadrado mcuadrado 135M oct 24 18:15 Drosophila_melanogaster.BDGP6.28.102.gtf
+```
+
+3. ¿Qué ocurre con la otra parte cuando se edita el destino o el origen del enlace?
+
+**Respuesta_3: No sé editar el fichero .gtf. Imagino que si modifico el archivo de datos tanto en el origen como en el destino se me mantendrán los datos***
+
+
+
+4. ¿Qué ocurre cuando copiamos el enlace?
+
+**Respuesta_4: lo copia al nuevo directorio que crea. El archivo origen se mantiene con 1 entrada.**
+**El archivo destino y la copia con 2 entradas. No aumenta el total 181M**
+
+```
+total 181M
+229900454 -rwxr-xr-x 1 mcuadrado mcuadrado 135M oct 24 18:42 Drosophila_melanogaster.BDGP6.28.102.gtf
+229900455 drwxr-xr-x 2 mcuadrado mcuadrado 4,0K oct 24 18:43 enlsoft
+229900458 drwxr-xr-x 2 mcuadrado mcuadrado 4,0K oct 24 18:44 enlsoft-2
+229900453 -rwxr-xr-x 1 mcuadrado mcuadrado  47M oct 24 18:42 Homo_sapiens.GRCh38.102.gtf.gz
+```
+
+```
+mcuadrado@cpg3:~/2-gestion-y-descarga-mcuadrado-smuntion/gtfs-1$ lista enlsoft-2
+total 0
+229900459 lrwxrwxrwx 1 mcuadrado mcuadrado 40 oct 24 18:44 Drosophila_melanogaster.BDGP6.28.102.gtf -> Drosophila_melanogaster.BDGP6.28.102.gtf
+```
+-----------------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+ 
 
 
 ## Ejercicio 2
