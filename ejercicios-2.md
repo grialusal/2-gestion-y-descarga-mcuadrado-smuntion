@@ -180,7 +180,7 @@ Descarga, empleando la orden oportuna, todos los ficheros [de esta URL](ftp://ft
 
 ### Respuesta ejercicio 3
 
-'shasum index.html'
+`shasum index.html`
 
 ***aa802a538fe7f91e0585d158f11731d50ec95624  index.html***
 
