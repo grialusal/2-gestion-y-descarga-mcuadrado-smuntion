@@ -168,7 +168,9 @@ total 0
 Usa la documentación de `find` para encontrar todos los notebook Jupyter con fecha de última modificación 30 de Noviembre de 2020 que haya en tu directorio HOME. Excluye todos aquellos que se encuentren dentro de directorios ocultos (aquellos que comienzan por un punto `.`). 
 
 ### Respuesta ejercicio 2
-
+Ponemos find /home
+Sale una lista infita de nombres con acceso denegado, otros de Loreto de RNAs y entre otros tantos sale /home/jupyterhub_cookie_secret 
+Y apartir de hay no sabemos seguir buscando Jupyter del 30 de Noviembre de 2020. 
 
 ## Ejercicio 3
 Descarga, empleando la orden oportuna, todos los ficheros [de esta URL](ftp://ftp.ensembl.org/pub/release-102/gtf/accipiter_nisus/). 
