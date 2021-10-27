@@ -192,6 +192,66 @@ Descarga, empleando la orden oportuna, todos los ficheros [de esta URL](ftp://ft
 
 
 ### Respuesta ejercicio 3
+Escribiendo en el terminal wget -r Fttt.....
+Finalemnte nos ha descargado la secuencia
+wget -r ftp://ftp.ensembl.org/pub/release-102/gtf/accipiter_nisus/
+--2021-10-27 15:26:04--  ftp://ftp.ensembl.org/pub/release-102/gtf/accipiter_nisus/
+           => «ftp.ensembl.org/pub/release-102/gtf/accipiter_nisus/.listing»
+Resolviendo ftp.ensembl.org (ftp.ensembl.org)... 193.62.193.139
+Conectando con ftp.ensembl.org (ftp.ensembl.org)[193.62.193.139]:21... conectado.
+Identificándose como anonymous ... ¡Dentro!
+==> SYST ... hecho.   ==> PWD ... hecho.
+==> TYPE I ... hecho.  ==> CWD (1) /pub/release-102/gtf/accipiter_nisus ... hecho.
+==> PASV ... hecho.   ==> LIST ... hecho.
+
+ftp.ensembl.org/pub     [ <=>                ]     473  --.-KB/s    en 0,005s  
+
+2021-10-27 15:26:05 (91,4 KB/s) - «ftp.ensembl.org/pub/release-102/gtf/accipiter_nisus/.listing» guardado [473]
+
+«ftp.ensembl.org/pub/release-102/gtf/accipiter_nisus/.listing» eliminado.
+--2021-10-27 15:26:05--  ftp://ftp.ensembl.org/pub/release-102/gtf/accipiter_nisus/Accipiter_nisus.Accipiter_nisus_ver1.0.102.abinitio.gtf.gz
+           => «ftp.ensembl.org/pub/release-102/gtf/accipiter_nisus/Accipiter_nisus.Accipiter_nisus_ver1.0.102.abinitio.gtf.gz»
+==> no se requiere CWD.
+==> PASV ... hecho.   ==> RETR Accipiter_nisus.Accipiter_nisus_ver1.0.102.abinitio.gtf.gz ... hecho.
+Longitud: 3468742 (3,3M)
+
+ftp.ensembl.org/pub 100%[===================>]   3,31M  1,19MB/s    en 2,8s    
+
+2021-10-27 15:26:09 (1,19 MB/s) - «ftp.ensembl.org/pub/release-102/gtf/accipiter_nisus/Accipiter_nisus.Accipiter_nisus_ver1.0.102.abinitio.gtf.gz» guardado [3468742]
+
+--2021-10-27 15:26:09--  ftp://ftp.ensembl.org/pub/release-102/gtf/accipiter_nisus/Accipiter_nisus.Accipiter_nisus_ver1.0.102.gtf.gz
+           => «ftp.ensembl.org/pub/release-102/gtf/accipiter_nisus/Accipiter_nisus.Accipiter_nisus_ver1.0.102.gtf.gz»
+==> no se requiere CWD.
+==> PASV ... hecho.   ==> RETR Accipiter_nisus.Accipiter_nisus_ver1.0.102.gtf.gz ... hecho.
+Longitud: 9593838 (9,1M)
+
+ftp.ensembl.org/pub 100%[===================>]   9,15M   651KB/s    en 15s     
+
+2021-10-27 15:26:24 (622 KB/s) - «ftp.ensembl.org/pub/release-102/gtf/accipiter_nisus/Accipiter_nisus.Accipiter_nisus_ver1.0.102.gtf.gz» guardado [9593838]
+
+--2021-10-27 15:26:24--  ftp://ftp.ensembl.org/pub/release-102/gtf/accipiter_nisus/CHECKSUMS
+           => «ftp.ensembl.org/pub/release-102/gtf/accipiter_nisus/CHECKSUMS»
+==> no se requiere CWD.
+==> PASV ... hecho.   ==> RETR CHECKSUMS ... hecho.
+Longitud: 152
+
+ftp.ensembl.org/pub 100%[===================>]     152  --.-KB/s    en 0,01s   
+
+2021-10-27 15:26:24 (10,5 KB/s) - «ftp.ensembl.org/pub/release-102/gtf/accipiter_nisus/CHECKSUMS» guardado [152]
+
+--2021-10-27 15:26:24--  ftp://ftp.ensembl.org/pub/release-102/gtf/accipiter_nisus/README
+           => «ftp.ensembl.org/pub/release-102/gtf/accipiter_nisus/README»
+==> no se requiere CWD.
+==> PASV ... hecho.   ==> RETR README ... hecho.
+Longitud: 9403 (9,2K)
+
+ftp.ensembl.org/pub 100%[===================>]   9,18K  --.-KB/s    en 0,02s   
+
+2021-10-27 15:26:24 (513 KB/s) - «ftp.ensembl.org/pub/release-102/gtf/accipiter_nisus/README» guardado [9403]
+
+ACABADO --2021-10-27 15:26:24--
+Tiempo total de reloj: 20s
+Descargados: 4 ficheros, 12M en 18s (714 KB/s)
 
 `shasum index.html`
 
@@ -206,3 +266,4 @@ shasum -c html_checksums.sha
 
 ***./index.html: OK***
 
+Y los Checksums estan OK.
