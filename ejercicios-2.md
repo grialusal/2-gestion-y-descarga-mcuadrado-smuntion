@@ -168,9 +168,22 @@ total 0
 Usa la documentación de `find` para encontrar todos los notebook Jupyter con fecha de última modificación 30 de Noviembre de 2020 que haya en tu directorio HOME. Excluye todos aquellos que se encuentren dentro de directorios ocultos (aquellos que comienzan por un punto `.`). 
 
 ### Respuesta ejercicio 2
-Ponemos find /home
-Sale una lista infita de nombres con acceso denegado, otros de Loreto de RNAs y entre otros tantos sale /home/jupyterhub_cookie_secret 
-Y apartir de hay no sabemos seguir buscando Jupyter del 30 de Noviembre de 2020. 
+Ponemos find /home/alejandro -name "*.ipynb" y a continuacion nos muestran todos estos archivos
+/home/alejandro/P1-matriz-old.ipynb
+/home/alejandro/un_cuaderno.ipynb
+/home/alejandro/P6-enriquecimiento.ipynb
+/home/alejandro/P3-expresion.ipynb
+/home/alejandro/P4-expresionDiferencial.ipynb
+/home/alejandro/P1-matriz.ipynb
+/home/alejandro/.ipynb_checkpoints/un_cuaderno-checkpoint.ipynb
+/home/alejandro/P8-edgeR.ipynb
+/home/alejandro/.local/share/jupyter/nbgrader_cache/python-bio/alejandro+ps1+2020-10-09 08:27:41.013624 UTC/bloque1.ipynb
+/home/alejandro/.local/share/jupyter/nbgrader_cache/python-bio/alejandro+ps1+2020-10-08 18:00:41.993364 UTC/bloque1.ipynb
+/home/alejandro/.local/share/jupyter/nbgrader_cache/python-bio/alejandro+ps1+2020-10-08 18:02:23.551532 UTC/bloque1.ipynb
+/home/alejandro/ps1/.ipynb_checkpoints/bloque1-checkpoint.ipynb
+/home/alejandro/ps1/bloque1.ipynb
+/home/alejandro/P5-coexpresion.ipynb 
+
 
 ## Ejercicio 3
 Descarga, empleando la orden oportuna, todos los ficheros [de esta URL](ftp://ftp.ensembl.org/pub/release-102/gtf/accipiter_nisus/). 
