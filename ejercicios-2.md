@@ -169,6 +169,8 @@ Usa la documentación de `find` para encontrar todos los notebook Jupyter con fe
 
 ### Respuesta ejercicio 2
 Ponemos find /home/alejandro -name "*.ipynb" y a continuacion nos muestran todos estos archivos
+
+```
 /home/alejandro/P1-matriz-old.ipynb
 /home/alejandro/un_cuaderno.ipynb
 /home/alejandro/P6-enriquecimiento.ipynb
@@ -183,6 +185,8 @@ Ponemos find /home/alejandro -name "*.ipynb" y a continuacion nos muestran todos
 /home/alejandro/ps1/.ipynb_checkpoints/bloque1-checkpoint.ipynb
 /home/alejandro/ps1/bloque1.ipynb
 /home/alejandro/P5-coexpresion.ipynb 
+
+```
 
 
 ## Ejercicio 3
@@ -267,3 +271,34 @@ shasum -c html_checksums.sha
 ***./index.html: OK***
 
 Y los Checksums estan OK.
+
+
+
+## Correciones
+
+En general, poner atención en el formato del documento markdown cuando estamos compartiendo el código para que sea más sencillo para los demás de seguir. La recomendación es copiar y pegar el código de la consola que incluye la línea del usuario con la localización actual y la linea de ordenes y a continuación el resultado. Y eso lo colocamos entre los ```.
+De esta manera es más fácil reproducir el trabajo que se viene haciendo. Se puede consultar la correción del professor para ver el formato.
+
+**Ejercicio 1**
+
+El enunciado pide hacer enlaces a archivos .gft, estos archivos son archivos de texto que se pueden abrir con el nano. El archivo gft.gz es un archivo comprimido.
+Se crearon los enlaces y se hicieron algunas comprobaciones, pero no todas las que se podrían y algunas de las cosas que se suponen podrían ser comprobadas abriendo los ficheros de texto como pedía el enunciado.
+
+ Puntuación: 2
+
+**Ejercicio 2**
+
+La formatación hace que sea difícil de leer, he formatado el resultado de la línea de comandos como ejemplos. Faltó la parte de la fecha, se podría haber usar el flag de find  -newermt ‘date’ y -not -newermt ‘date’
+
+Puntuación: 1,75
+
+
+**Ejercicio 3**
+
+Se realizó la comprobación checksum, pero de un archivo incorrecto
+
+Pùntuación: 3
+
+Total: 6,75
+
+
